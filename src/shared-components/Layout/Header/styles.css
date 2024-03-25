@@ -1,0 +1,29 @@
+.main-header {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: Montserrat-bold;
+    font-size: 25px;
+    line-height: 30.48px;
+    color:#101010 ;
+    text-decoration: none;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 0;
+}
+
+.link {
+    list-style: none;
+    padding: 0;
+}

@@ -1,0 +1,10 @@
+.product-buy-btn {
+    font-family: Montserrat-semibold;
+    font-size: 17px;
+    line-height: 20.72px;
+    color: #000;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

@@ -28,7 +28,7 @@ export const About = ({cartItems}:AboutProps) =>  {
                 <div className="total-container">
                     <div className={"product-conteiner"}>
                         <h2 className={"product-design"}>Итого:</h2>
-                        <p className={"product-design"}>P 1000</p>
+                        <p className={"product-design"}>₽ 1000</p>
                     </div>
                     <button className={"product-button"}>Перейти к оформлению</button>
                 </div>

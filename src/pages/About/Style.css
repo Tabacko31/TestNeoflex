@@ -55,6 +55,9 @@
     color: white;
     font-weight: 600;
 }
+.product-button:hover{
+    background: #1C1C27;
+}
 
 .product-conteiner{
     display: flex;

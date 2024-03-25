@@ -1,21 +1,21 @@
 import React from "react";
 import './styles.css';
-import { ReactComponent as StarSvg } from '../../assets/images/icons/Star.svg';
+import {ReactComponent as StarSvg} from '../../assets/images/icons/Star.svg';
 import AppleImg from '../../assets/images/Image.png';
 
 
 const products = [
-    { id: 1, name: "Headphones", price: 2327, image: "../image/Apple.png", rating: 4.5 },
-    { id: 2, name: "Speakers", price: 2327, image: "../image/Apple.png", rating: 4.5 },
-    { id: 3, name: "Microphone", price: 2327, image: "../image/Apple.png", rating: 4.7 },
-    { id: 4, name: "Headphones", price: 2327, image: "../image/Apple.png", rating: 4.5 },
-    { id: 5, name: "Speakers", price: 2327, image: "./image/Apple.png", rating: 4.5 },
-    { id: 6, name: "Microphone", price: 2327, image: "./image/Apple.png", rating: 4.7},
+    {id: 1, name: "Headphones", price: 2327, image: "../image/Apple.png", rating: 4.5},
+    {id: 2, name: "Speakers", price: 2327, image: "../image/Apple.png", rating: 4.5},
+    {id: 3, name: "Microphone", price: 2327, image: "../image/Apple.png", rating: 4.7},
+    {id: 4, name: "Headphones", price: 2327, image: "../image/Apple.png", rating: 4.5},
+    {id: 5, name: "Speakers", price: 2327, image: "./image/Apple.png", rating: 4.5},
+    {id: 6, name: "Microphone", price: 2327, image: "./image/Apple.png", rating: 4.7},
 ];
 const wirelessHeadphones = [
-    { id: 4, name: "Wireless Headphones 1", price: 120, image: "./image/Apple.png", rating: 4.5 },
-    { id: 5, name: "Wireless Headphones 2", price: 150, image: "./image/Apple.png", rating: 4.5 },
-    { id: 6, name: "Wireless Headphones 3", price: 100, image: "./image/Apple.png", rating: 4.6 }
+    {id: 4, name: "Wireless Headphones 1", price: 120, image: "./image/Apple.png", rating: 4.5},
+    {id: 5, name: "Wireless Headphones 2", price: 150, image: "./image/Apple.png", rating: 4.5},
+    {id: 6, name: "Wireless Headphones 3", price: 100, image: "./image/Apple.png", rating: 4.6}
 ];
 
 interface Product {
@@ -50,11 +50,12 @@ export const Products = () => {
                             <div className="product-info">
                                 <div className="product-info-row">
                                     <h3 className="product-name">{product.name}</h3>
-                                    <p className={"product-price"}>{product.price}P</p>
+                                    <p className={"product-price"}>{product.price}₽</p>
                                 </div>
 
                                 <div className="product-info-row">
-                                    <p className={"product-rating"}><StarSvg className="star-icon"></StarSvg> {product.rating}</p>
+                                    <p className={"product-rating"}><StarSvg
+                                        className="star-icon"></StarSvg> {product.rating}</p>
 
                                     <button className="product-buy-btn" onClick={() => addToCart(product)}>
                                         Купить
@@ -81,7 +82,7 @@ export const Products = () => {
                             <div className="product-info">
                                 <div className="product-info-row">
                                     <h3 className="product-name">{product.name}</h3>
-                                    <p className={"product-price"}>{product.price}P</p>
+                                    <p className={"product-price"}>{product.price}₽</p>
                                 </div>
 
                                 <div className="product-info-row">

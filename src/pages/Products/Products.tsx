@@ -54,8 +54,7 @@ export const Products = () => {
                                 </div>
 
                                 <div className="product-info-row">
-                                    <p className={"product-rating"}><StarSvg
-                                        className="star-icon"></StarSvg> {product.rating}</p>
+                                    <p className={"product-rating"}><StarSvg className="star-icon"></StarSvg> {product.rating}</p>
 
                                     <button className="product-buy-btn" onClick={() => addToCart(product)}>
                                         Купить

@@ -2,15 +2,17 @@ import React from "react";
 import './styles.css';
 import {ReactComponent as StarSvg} from '../../assets/images/icons/Star.svg';
 import AppleImg from '../../assets/images/Image.png';
+import AppleImg1 from '../../assets/images/AppleEarPods.png';
+import AppleImg2 from '../../assets/images/AppleEarPodsAux.png';
 
 
 const products = [
-    {id: 1, name: "Headphones", price: 2327, image: "../image/Apple.png", rating: 4.5},
-    {id: 2, name: "Speakers", price: 2327, image: "../image/Apple.png", rating: 4.5},
-    {id: 3, name: "Microphone", price: 2327, image: "../image/Apple.png", rating: 4.7},
-    {id: 4, name: "Headphones", price: 2327, image: "../image/Apple.png", rating: 4.5},
-    {id: 5, name: "Speakers", price: 2327, image: "./image/Apple.png", rating: 4.5},
-    {id: 6, name: "Microphone", price: 2327, image: "./image/Apple.png", rating: 4.7},
+    {id: 1, name: "Headphones", price: 2327, image: AppleImg, rating: 4.5},
+    {id: 2, name: "Speakers", price: 2327, image:AppleImg, rating: 4.5},
+    {id: 3, name: "Microphone", price: 2327, image: AppleImg1, rating: 4.7},
+    {id: 4, name: "Headphones", price: 2327, image: AppleImg1, rating: 4.5},
+    {id: 5, name: "Speakers", price: 2327, image: AppleImg2, rating: 4.5},
+    {id: 6, name: "Microphone", price: 2327, image: AppleImg2, rating: 4.7},
 ];
 const wirelessHeadphones = [
     {id: 4, name: "Wireless Headphones 1", price: 120, image: "./image/Apple.png", rating: 4.5},
@@ -44,7 +46,7 @@ export const Products = () => {
                         <div key={product.id} className="product-card">
 
                             <div className="product-img-wrapper">
-                                <img className="product-img" src={AppleImg} alt={product.name}/>
+                                <img className="product-img" src={product.image} alt={product.name}/>
                             </div>
 
                             <div className="product-info">

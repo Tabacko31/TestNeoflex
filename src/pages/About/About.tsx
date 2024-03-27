@@ -5,6 +5,7 @@ interface Product {
     id: number;
     name: string;
     price: number;
+    image: string;
 }
 
 interface AboutProps {
@@ -36,7 +37,11 @@ export const About = ({}: AboutProps) =>  {
                     <button className={"clean-button"} onClick={() => clearCart()}><DeleteSvg className="star-icon"></DeleteSvg></button>
                     {cartItems.map((item: any) => (
                         <div key={item.id} className="cart-item">
-                            <p>{item.name} - {item.price}P</p>
+                            <img className={"img"} src={item.image} alt=""/>
+                            <div className={"information"}>
+                            <p className={"info-name"}>{item.name}</p>
+                            <p className={"info-price"}>{item.price}P</p>
+                             </div>
                         </div>
                     ))}
 

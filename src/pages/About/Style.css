@@ -74,3 +74,35 @@
 margin-left: 580px;
     margin-top: 10px;
 }
+
+.img{
+    width: 146px;
+    height: 136px;
+}
+.cart-item{
+    display: flex;
+    margin-left: 19px;
+
+}
+
+.info-name{
+    line-height: 20px;
+    font-family: Montserrat-regular;
+    font-size: 17px;
+    color: black;
+    font-weight: 500;
+}
+
+.information{
+    margin-left: 24px;
+}
+
+.info-price{
+    font-family: Montserrat-semibold;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18.29px;
+    color: grey;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}

@@ -27,3 +27,22 @@
     list-style: none;
     padding: 0;
 }
+
+.cart-icon-wrapper {
+    position: relative;
+}
+
+.cart-items-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-radius: 50%;
+    width: 17.4px;
+    height: 17.4px;
+    background: #FFA542;
+    color: #fff;
+    font-family: 'Montserrat-medium';
+}

@@ -1,33 +1,55 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Route, Routes} from "react-router-dom";
-import {About} from "./pages/About/About";
-import {Dashboard} from "./pages/Dashboard";
+import {Basket} from "./pages/Basket";
+import {Features} from "./pages/Features";
 import {NoMatch} from "./pages/NoMatch";
-import {Products} from "./pages/Products/Products";
+import {Products} from "./pages/Products";
 import {Layout} from "./shared-components/Layout/Layout";
+import {CartItem} from "./types";
 
+export const StoreContext = React.createContext<{
+    cartItems: CartItem[]
+    loadCartItems: () => void
+    clearCartItems: () => void
+} | null>(null)
 
-// const products = [
-//     { id: 1, name: "Headphones", price: 2327, image: "../image/Apple.png", rating: 4.5 },
-//     { id: 2, name: "Speakers", price: 2327, image: "../image/Apple.png", rating: 4.5 },
-//     { id: 3, name: "Microphone", price: 2327, image: "../image/Apple.png", rating: 4.7 },
-//     { id: 4, name: "Headphones", price: 2327, image: "../image/Apple.png", rating: 4.5 },
-//     { id: 5, name: "Speakers", price: 2327, image: "./image/Apple.png", rating: 4.5 },
-//     { id: 6, name: "Microphone", price: 2327, image: "./image/Apple.png", rating: 4.7},
-// ];
 function App() {
+    const [cartItems, setCartItems] = React.useState<CartItem[]>([]);
+
+    const loadCartItemsFromSessionStorage = () => {
+        const sessionCartItems = JSON.parse(sessionStorage.getItem('cartItems') || '[]');
+        setCartItems(sessionCartItems);
+    }
+
+    const clearCartItems = () => {
+        sessionStorage.removeItem('cartItems');
+        loadCartItemsFromSessionStorage()
+    }
+
+    const store = {
+        cartItems,
+        loadCartItems: loadCartItemsFromSessionStorage,
+        clearCartItems
+    }
+
+    React.useEffect(() => {
+        // Получение данных из sessionStorage при монтировании компонента
+        loadCartItemsFromSessionStorage()
+    }, []);
+
     return (
+        <StoreContext.Provider value={store}>
+            <Routes>
+                <Route path="/" element={<Layout/>}>
+                    <Route index element={<Products/>}/>
+                    <Route path="basket" element={<Basket />} />
+                    <Route path="dashboard" element={<Features/>}/>
 
-        <Routes>
-            <Route path="/" element={<Layout/>}>
-                <Route index element={<Products/>}/>
-                {/*<Route index element={<About/>}/>*/}
-                <Route path="about" element={<About cartItems={JSON.parse(sessionStorage.getItem('cartItems') || '[]')} />} />
-                <Route path="dashboard" element={<Dashboard/>}/>
+                    <Route path="*" element={<NoMatch/>}/>
+                </Route>
+            </Routes>
+        </StoreContext.Provider>
 
-                <Route path="*" element={<NoMatch/>}/>
-            </Route>
-        </Routes>
     );
 }
 

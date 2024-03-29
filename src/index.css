@@ -9,11 +9,6 @@ body {
   height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 @font-face {
   font-family: 'Montserrat-black';
   src: url('./assets/fonts/Montserrat-Black.ttf') format('opentype');
@@ -33,3 +28,8 @@ code {
   font-family: 'Montserrat-regular';
   src: url('./assets/fonts/Montserrat-Regular.ttf') format('opentype');
 }
+@font-face {
+  font-family: 'Montserrat-medium';
+  src: url('./assets/fonts/Montserrat-Medium.ttf') format('opentype');
+}
+

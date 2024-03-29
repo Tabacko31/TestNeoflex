@@ -1,6 +1,11 @@
+.products-categories-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
 
-.product-wrapper {
-    margin-bottom: 28px;
+.products-category-wrapper {
+
 }
 
 .product-category {
@@ -11,7 +16,7 @@
     margin-bottom: 20px;
 }
 
-.product-items {
+.category-items {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px;

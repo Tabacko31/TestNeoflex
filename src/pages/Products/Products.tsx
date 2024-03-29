@@ -4,11 +4,13 @@ import {ReactComponent as StarSvg} from '../../assets/images/icons/Star.svg';
 import AppleImg from '../../assets/images/Image.png';
 import AppleImg1 from '../../assets/images/AppleEarPods.png';
 import AppleImg2 from '../../assets/images/AppleEarPodsAux.png';
+import {useStore} from "../../hooks/useStore";
+import {CartItem, Item} from "../../types";
 
 
 const products = [
     {id: 1, name: "Headphones", price: 2327, image: AppleImg, rating: 4.5},
-    {id: 2, name: "Speakers", price: 2327, image:AppleImg, rating: 4.5},
+    {id: 2, name: "Speakers", price: 2327, image: AppleImg, rating: 4.5},
     {id: 3, name: "Microphone", price: 2327, image: AppleImg1, rating: 4.7},
     {id: 4, name: "Headphones", price: 2327, image: AppleImg1, rating: 4.5},
     {id: 5, name: "Speakers", price: 2327, image: AppleImg2, rating: 4.5},
@@ -20,28 +22,34 @@ const wirelessHeadphones = [
     {id: 6, name: "Wireless Headphones 3", price: 100, image: "./image/Apple.png", rating: 4.6}
 ];
 
-interface Product {
-    id: number;
-    name: string;
-    price: number;
-    image: string;
-    rating: number;
-}
-
 export const Products = () => {
+    const store = useStore();
 
-    const addToCart = (product: Product) => {
-        const cartItems = JSON.parse(sessionStorage.getItem('cartItems') || '[]');
-        const updatedCartItems = [...cartItems, product];
+    const addToCart = (product: Item) => {
+        const cartItems: CartItem[] = JSON.parse(sessionStorage.getItem('cartItems') || '[]');
+
+        const productIsInCart = cartItems.findIndex(
+            item => item.id === product.id
+        ) !== -1
+
+        const updatedCartItems: CartItem[] = productIsInCart
+            ? cartItems.map(item => item.id === product.id
+                ? ({
+                    ...item,
+                    count: item.count + 1
+                }) : item)
+            : [...cartItems, {...product, count: 1}]
+
         sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+        store?.loadCartItems();
     }
 
     return (
-        <div className="products-wrapper">
-            <div className="product-wrapper">
+        <div className="products-categories-wrapper">
+            <div className="products-category-wrapper">
                 <h2 className="product-category">Наушники</h2>
 
-                <div className="product-items">
+                <div className="category-items">
                     {products.map(product => (
                         <div key={product.id} className="product-card">
 
@@ -56,7 +64,8 @@ export const Products = () => {
                                 </div>
 
                                 <div className="product-info-row">
-                                    <p className={"product-rating"}><StarSvg className="star-icon"></StarSvg> {product.rating}</p>
+                                    <p className={"product-rating"}><StarSvg
+                                        className="star-icon"></StarSvg> {product.rating}</p>
 
                                     <button className="product-buy-btn" onClick={() => addToCart(product)}>
                                         Купить
@@ -68,11 +77,10 @@ export const Products = () => {
                 </div>
             </div>
 
-
-            <div className="product-wrapper">
+            <div className="products-category-wrapper">
                 <h2 className="product-category">Беспроводные наушники</h2>
 
-                <div className="product-items">
+                <div className="category-items">
                     {wirelessHeadphones.map(product => (
                         <div key={product.id} className="product-card">
 
@@ -87,8 +95,10 @@ export const Products = () => {
                                 </div>
 
                                 <div className="product-info-row">
-                                    <p className={"product-rating"}><StarSvg
-                                        className="star-icon"></StarSvg> {product.rating}</p>
+                                    <p className={"product-rating"}>
+                                        <StarSvg className="star-icon"/>
+                                        {product.rating}
+                                    </p>
 
                                     <button className="product-buy-btn">Купить</button>
                                 </div>

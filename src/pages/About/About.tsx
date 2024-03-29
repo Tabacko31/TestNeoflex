@@ -34,6 +34,7 @@ export const About = ({}: AboutProps) =>  {
                 {/* Левый блок с товарами */}
 
                 <div className="items-container">
+                    <div>
                     <button className={"clean-button"} onClick={() => clearCart()}><DeleteSvg className="star-icon"></DeleteSvg></button>
                     {cartItems.map((item: any) => (
                         <div key={item.id} className="cart-item">
@@ -44,6 +45,7 @@ export const About = ({}: AboutProps) =>  {
                              </div>
                         </div>
                     ))}
+                </div>
 
                 </div>
                 {/* Правый блок с итоговой суммой и кнопкой */}

@@ -13,7 +13,7 @@ export const Basket = () => {
 
     const decrementCartItem = (itemId: number) => {
         const updatedCartItems = store?.cartItems.map(item => {
-            if (item.id === itemId) {
+            if (item.id === itemId  && item.count > 0) {
                 return {
                     ...item,
                     count: item.count - 1
@@ -63,6 +63,7 @@ export const Basket = () => {
                                     <button className={"button-count"} onClick={() => incrementCartItem(item.id)}>+
                                     </button>
                                 </div>
+
                             </div>
 
                             <div className={"information"}>
@@ -72,10 +73,13 @@ export const Basket = () => {
 
                         </div>
                     ))}
+                    <div className={"total-price-basket"}>
+                    <p className={"product-design"}>₽ {store?.cartItems.reduce((total, item: CartItem) => total + item.price * item.count, 0)}</p>
+                   </div>
                 </div>
                 {/* Правый блок с итоговой суммой и кнопкой */}
                 <div className="total-container">
-                    <div className={"product-conteiner"}>
+                <div className={"product-conteiner"}>
                         <h2 className={"product-design"}>Итого:</h2>
                         <p className={"product-design"}>₽ {store?.cartItems.reduce((total, item: CartItem) => total + item.price * item.count, 0)}</p>
                     </div>

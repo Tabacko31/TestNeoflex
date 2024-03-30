@@ -54,8 +54,9 @@
     line-height: 20.72px;
     color: white;
     font-weight: 600;
+    cursor: pointer;
 }
-.product-button:hover{
+.product-button-design:hover{
     background: #1C1C27;
 }
 
@@ -137,3 +138,11 @@ margin-left: 580px;
     margin-left: 25px;
 
 }
+
+.total-price-basket{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
+
+}
+

@@ -71,3 +71,8 @@ margin-top: 27px;
     align-items: flex-start;
 }
 
+.button-social-icon{
+    border: none;
+    background: white;
+    cursor: pointer;
+}

@@ -12,28 +12,30 @@ export const Footer = () => {
                 <Link to="/" className="logo">QPICK</Link>
 
 
-            <div className={"invisible-box"}>
-                <div className={"product-conteiner1"}>
+                <div className={"invisible-box"}>
+                    <div className={"product-conteiner1"}>
 
-                    <div className={"info-card"}>
-                        <h2>Избранное</h2>
-                        <h2>Корзина</h2>
-                        <h2>Контакты</h2>
+                        <div className={"info-card"}>
+                            <h2>Избранное</h2>
+                            <h2>Корзина</h2>
+                            <h2>Контакты</h2>
 
-                    </div>
-                    <div>
-                        <h2 className={"info-card1"}>Условия сервиса</h2>
-                        <div className={"conteiner-dottom"}>
-                            <RuSvg className="ru-icon"></RuSvg>
-                            <button className={"language-button"}>Рус</button>
-                            <button className={"language-button"}>Eng</button>
+                        </div>
+                        <div>
+                            <h2 className={"info-card1"}>Условия сервиса</h2>
+                            <div className={"conteiner-dottom"}>
+                                <RuSvg className="ru-icon"></RuSvg>
+                                <button className={"language-button"}>Рус</button>
+                                <button className={"language-button"}>Eng</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <a href="https://vk.com/nub228" target="_blank" rel="noopener noreferrer">
+                    <button className={"button-social-icon"}><SocialSvg className="social-icon"></SocialSvg></button>
+                </a>
             </div>
-                <SocialSvg className="social-icon"></SocialSvg>
-        </div>
         </footer>
 
-    )
+)
 }
